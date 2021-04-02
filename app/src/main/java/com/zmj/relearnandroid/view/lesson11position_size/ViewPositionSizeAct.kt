@@ -1,4 +1,4 @@
-package com.zmj.relearnandroid.view.`11posandsize`
+package com.zmj.relearnandroid.view.lesson11position_size
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

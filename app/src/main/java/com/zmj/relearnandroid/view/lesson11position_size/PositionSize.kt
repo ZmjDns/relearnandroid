@@ -1,4 +1,4 @@
-package com.zmj.relearnandroid.view.`11posandsize`
+package com.zmj.relearnandroid.view.lesson11position_size
 
 import android.content.Context
 import android.graphics.*
@@ -6,7 +6,6 @@ import android.util.AttributeSet
 import android.view.View
 import com.zmj.relearnandroid.view.dp
 import java.lang.Math.toRadians
-import kotlin.math.PI
 import kotlin.math.cos
 import kotlin.math.sin
 
@@ -53,11 +52,11 @@ class TestView(context: Context, attrs: AttributeSet): View(context, attrs) {
 
         //指针
         val angle = getAngle(5)
-        canvas.drawLine(width/2f, height/2f, width/2 + RADIUS/1.5f * cos(toRadians(angle.toDouble()).toFloat()), height/2 + RADIUS/1.5f * sin(toRadians(angle.toDouble()).toFloat()), paint)
+        canvas.drawLine(width/2f, height/2f, width/2 + RADIUS/1.5f * cos(angle), height/2 + RADIUS/1.5f * sin(angle), paint)
 
     }
 
     fun getAngle(num: Int): Float {
-        return (360- OPEN_ANGLE)/20 * num + 90 + OPEN_ANGLE/2f
+        return toRadians(((360- OPEN_ANGLE)/20 * num + 90 + OPEN_ANGLE/2f).toDouble()).toFloat()
     }
 }
