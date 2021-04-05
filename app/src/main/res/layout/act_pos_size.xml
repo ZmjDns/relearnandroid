@@ -6,7 +6,12 @@
     android:layout_height="match_parent">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.zmj.relearnandroid.view.lesson11position_size.PieView
+            android:layout_width="match_parent"
+            android:layout_height="400dp"/>
 
         <com.zmj.relearnandroid.view.lesson11position_size.TestView
             android:layout_width="match_parent"
