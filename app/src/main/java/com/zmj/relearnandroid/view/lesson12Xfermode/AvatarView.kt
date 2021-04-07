@@ -4,7 +4,6 @@ import android.content.Context
 import android.graphics.*
 import android.util.AttributeSet
 import android.view.View
-import android.view.WindowInsetsAnimation
 import com.zmj.relearnandroid.view.dp
 import com.zmj.relearnandroid.view.getAvatar
 
@@ -26,6 +25,8 @@ class AvatarView(context: Context, attrs: AttributeSet): View(context, attrs) {
 
 
     override fun onDraw(canvas: Canvas) {
+
+        canvas.drawOval(IMAGE_PADDING/2,IMAGE_PADDING/2,IMAGE_PADDING * 1.5f + IMAGE_WIDTH, IMAGE_PADDING * 1.5f + IMAGE_WIDTH,paint)
 
         val count =  canvas.saveLayer(bounds,null)   //离屏缓冲，否则无法画出圆形头像
         canvas.drawOval(IMAGE_PADDING,IMAGE_PADDING, IMAGE_PADDING + IMAGE_WIDTH, IMAGE_PADDING + IMAGE_WIDTH,paint)
