@@ -1,11 +1,11 @@
 package com.zmj.relearnandroid.view.lesson13textmeasure
 
 import android.content.Context
-import android.graphics.Canvas
-import android.graphics.Color
-import android.graphics.Paint
+import android.graphics.*
 import android.util.AttributeSet
 import android.view.View
+import androidx.core.content.res.ResourcesCompat
+import com.zmj.relearnandroid.R
 import com.zmj.relearnandroid.view.dp
 
 /**
@@ -17,11 +17,20 @@ import com.zmj.relearnandroid.view.dp
  */
 class SportView(context: Context,attrs: AttributeSet): View(context, attrs) {
 
-    private val paint = Paint(Paint.ANTI_ALIAS_FLAG)
+    private val paint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+        textSize = 100.dp
+        typeface = ResourcesCompat.getFont(context, R.font.font)
+        textAlign = Paint.Align.CENTER
+    }
     private val BG_COLOR = Color.GRAY
     private val DONE_COLOR =Color.parseColor("#FF4081")
-    private val STROKE_WIDTH = 20.dp
-    private val RADIUS = 100.dp
+    private val STROKE_WIDTH = 14.dp
+    private val RADIUS = 140.dp
+
+    private var text = "abab"
+    private var textBounds = Rect()
+
+    private val fontMetrics = Paint.FontMetrics()
 
 
     override fun onDraw(canvas: Canvas) {
@@ -36,7 +45,10 @@ class SportView(context: Context,attrs: AttributeSet): View(context, attrs) {
         canvas.drawArc(width/2-RADIUS,height/2-RADIUS,width/2+RADIUS,height/2+RADIUS,-100f,200f,false,paint)
         //绘制文字
         paint.style = Paint.Style.FILL
-        paint.textSize = 40.dp
-        canvas.drawText("abab",width/2f,height/2f,paint)
+//        paint.getTextBounds(text,0,text.length,textBounds)    //适合金静态文字
+//        canvas.drawText(text,width/2f,width/2f,paint)
+
+        paint.getFontMetrics(fontMetrics)   //适合动态文字
+        canvas.drawText(text,width/2f,height/2f - (fontMetrics.ascent + fontMetrics.descent)/2f, paint)
     }
 }
