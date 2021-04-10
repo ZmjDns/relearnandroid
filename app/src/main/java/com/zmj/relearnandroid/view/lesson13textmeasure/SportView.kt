@@ -44,11 +44,27 @@ class SportView(context: Context,attrs: AttributeSet): View(context, attrs) {
         paint.color = DONE_COLOR
         canvas.drawArc(width/2-RADIUS,height/2-RADIUS,width/2+RADIUS,height/2+RADIUS,-100f,200f,false,paint)
         //绘制文字
+        paint.textSize = 100.dp
+        paint.textAlign = Paint.Align.CENTER
         paint.style = Paint.Style.FILL
 //        paint.getTextBounds(text,0,text.length,textBounds)    //适合金静态文字
-//        canvas.drawText(text,width/2f,width/2f,paint)
+//        canvas.drawText(text,width/2f,height/2f - (textBounds.top + textBounds.bottom)/2f,paint)
 
         paint.getFontMetrics(fontMetrics)   //适合动态文字
         canvas.drawText(text,width/2f,height/2f - (fontMetrics.ascent + fontMetrics.descent)/2f, paint)
+
+        //文字的贴边1
+        paint.textSize = 100.dp
+        paint.textAlign = Paint.Align.LEFT
+//        paint.getFontMetrics(fontMetrics)
+        paint.getTextBounds(text,0,text.length,textBounds)
+        canvas.drawText(text,0f-textBounds.left,0f - textBounds.top,paint)
+
+        //文字的贴边2
+        paint.textSize = 15.dp
+        paint.textAlign = Paint.Align.LEFT
+//        paint.getFontMetrics(fontMetrics)
+        paint.getTextBounds(text,0,text.length,textBounds)
+        canvas.drawText(text,0f-textBounds.left,0f - textBounds.top,paint)
     }
 }
