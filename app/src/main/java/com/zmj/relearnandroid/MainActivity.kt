@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.zmj.relearnandroid.view.lesson12Xfermode.XFermodeAct
+import com.zmj.relearnandroid.view.lesson13textmeasure.TextMeasureAct
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,5 +22,9 @@ class MainActivity : AppCompatActivity() {
 
     fun xFermode(view: View) {
         startActivity(Intent(this,XFermodeAct::class.java))
+    }
+
+    fun textMeasure(view: View) {
+        startActivity(Intent(this,TextMeasureAct::class.java))
     }
 }

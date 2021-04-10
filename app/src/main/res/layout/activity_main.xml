@@ -21,6 +21,11 @@
             android:layout_height="wrap_content"
             android:text="XFermode"
             android:onClick="xFermode"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="textMeasure"
+            android:onClick="textMeasure"/>
 
     </LinearLayout>
 
