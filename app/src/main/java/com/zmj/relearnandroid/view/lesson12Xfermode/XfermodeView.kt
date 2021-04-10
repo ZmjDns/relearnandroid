@@ -17,7 +17,8 @@ class XfermodeView(context: Context, attrs: AttributeSet): View(context, attrs) 
 
     private val paint = Paint(Paint.ANTI_ALIAS_FLAG)
     private val bounds = RectF(150f,50f,300.dp,200.dp)  //  离屏缓冲区域，背景和目标存在的区域
-    private val xFermode = PorterDuffXfermode(PorterDuff.Mode.SRC_OUT)  // SRC_IN   SRC_OUT。。。
+    //  一定要区分Source和Destination，Destination是canvas先画的那个，Source是canvas后画的
+    private val xFermode = PorterDuffXfermode(PorterDuff.Mode.DST_OVER)  // SRC_IN   SRC_OUT。。。
 
     private val circelBitmap = Bitmap.createBitmap(150.dp.toInt(),150.dp.toInt(),Bitmap.Config.ARGB_8888)
     private val squareBitmap = Bitmap.createBitmap(150.dp.toInt(),150.dp.toInt(),Bitmap.Config.ARGB_8888)
