@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.lesson13textmeasure.TextMeasureAct"></activity>
+        <activity android:name=".view.lesson14cliptrans.ClipAndTransAct"></activity>
+        <activity android:name=".view.lesson13textmeasure.TextMeasureAct" />
         <activity android:name=".view.lesson11position_size.ViewPositionSizeAct" />
         <activity android:name=".view.lesson12Xfermode.XFermodeAct" />
         <activity android:name=".MainActivity">
