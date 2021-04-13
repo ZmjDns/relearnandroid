@@ -7,6 +7,7 @@ import android.view.View
 import com.zmj.relearnandroid.view.lesson12Xfermode.XFermodeAct
 import com.zmj.relearnandroid.view.lesson13textmeasure.TextMeasureAct
 import com.zmj.relearnandroid.view.lesson14cliptrans.ClipAndTransAct
+import com.zmj.relearnandroid.view.lesson15animate.AnimateAct
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,5 +32,9 @@ class MainActivity : AppCompatActivity() {
 
     fun clipAndTrans(view: View) {
         startActivity(Intent(this,ClipAndTransAct::class.java))
+    }
+
+    fun animate(view: View) {
+        startActivity(Intent(this,AnimateAct::class.java))
     }
 }
