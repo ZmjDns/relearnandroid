@@ -3,13 +3,13 @@
     package="com.zmj.relearnandroid">
 
     <application
-        android:allowBackup="true"
+        android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.lesson15animate.AnimateAct"></activity>
+        <activity android:name=".view.lesson15animate.AnimateAct"/>
         <activity android:name=".view.lesson14cliptrans.ClipAndTransAct" />
         <activity android:name=".view.lesson13textmeasure.TextMeasureAct" />
         <activity android:name=".view.lesson11position_size.ViewPositionSizeAct" />
