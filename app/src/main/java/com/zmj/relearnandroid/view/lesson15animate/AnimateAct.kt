@@ -1,7 +1,9 @@
 package com.zmj.relearnandroid.view.lesson15animate
 
 import android.animation.AnimatorSet
+import android.animation.Keyframe
 import android.animation.ObjectAnimator
+import android.animation.PropertyValuesHolder
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.zmj.relearnandroid.R
@@ -18,7 +20,14 @@ class AnimateAct : AppCompatActivity() {
 
 //        circleViewAnim()
 
-        flipAnimate()
+//        flipAnimate()
+
+//        valuesHolder()
+
+        keyFrameAnim()
+
+//        circleViewKeyFrame()
+
     }
 
     private fun circleViewAnim(){
@@ -53,5 +62,32 @@ class AnimateAct : AppCompatActivity() {
         val animSet = AnimatorSet()
         animSet.playSequentially(xAlixObj,objectAnimator,topObj)
         animSet.start()
+    }
+
+    //同一个动画操作多个属性
+    private fun valuesHolder() {
+        val bottomFlipHolder = PropertyValuesHolder.ofFloat("bottomFlip",60f)
+        val rotateHolder = PropertyValuesHolder.ofFloat("flipAngle", 270f)
+        val topFlipHolder = PropertyValuesHolder.ofFloat("topFlip", -60f)
+
+        val holderAnimator = ObjectAnimator.ofPropertyValuesHolder(flipView,bottomFlipHolder,rotateHolder,topFlipHolder)
+
+        holderAnimator.startDelay = 1000
+        holderAnimator.duration = 3000
+        holderAnimator.start()
+    }
+
+    private fun keyFrameAnim() {
+        val length = 200.dp
+        val keyframe0 = Keyframe.ofFloat(0f, 0f)
+        val keyframe1 = Keyframe.ofFloat(0.2f,0.4f * length)
+        val keyframe2 = Keyframe.ofFloat(0.8f,0.6f * length)
+        val keyframe3 = Keyframe.ofFloat(1f,1f*length)
+
+        val keyFrameHolder = PropertyValuesHolder.ofKeyframe("translationX", keyframe0,keyframe1,keyframe2,keyframe3)
+        val animator = ObjectAnimator.ofPropertyValuesHolder(flipView,keyFrameHolder)
+        animator.startDelay = 1000
+        animator.duration = 2000
+        animator.start()
     }
 }
