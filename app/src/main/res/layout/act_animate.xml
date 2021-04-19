@@ -15,6 +15,10 @@
             android:id="@+id/flipView"
             android:layout_width="match_parent"
             android:layout_height="300dp"/>
+        <com.zmj.relearnandroid.view.lesson15animate.ProvinceView
+            android:id="@+id/province"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"/>
 
         <com.zmj.relearnandroid.view.lesson15animate.PointView
             android:id="@+id/point"

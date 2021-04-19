@@ -10,6 +10,7 @@ import android.os.Bundle
 import com.zmj.relearnandroid.R
 import com.zmj.relearnandroid.view.dp
 import com.zmj.relearnandroid.view.lesson15animate.typeevaluator.PointFEvaluator
+import com.zmj.relearnandroid.view.lesson15animate.typeevaluator.StringEvaluator
 import kotlinx.android.synthetic.main.act_animate.*
 
 class AnimateAct : AppCompatActivity() {
@@ -22,7 +23,7 @@ class AnimateAct : AppCompatActivity() {
 
 //        circleViewAnim()
 
-//        flipAnimate()
+        flipAnimate()
 
 //        valuesHolder()
 
@@ -115,5 +116,10 @@ class AnimateAct : AppCompatActivity() {
         objectAnim.duration = 2000
         objectAnim.startDelay = 1000
         objectAnim.start()
+
+        val objectAnim1 = ObjectAnimator.ofObject(province,"province",StringEvaluator(),"山东省")
+        objectAnim1.duration = 2000
+        objectAnim1.startDelay = 1000
+        objectAnim1.start()
     }
 }
