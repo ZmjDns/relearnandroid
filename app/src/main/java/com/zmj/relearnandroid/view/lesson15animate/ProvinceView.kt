@@ -28,6 +28,10 @@ class ProvinceView(context: Context?, attrs: AttributeSet?) : View(context, attr
     init {
         paint.textSize = 50.dp
         paint.textAlign = Paint.Align.CENTER
+
+        /*setLayerType(LAYER_TYPE_HARDWARE,null)  //离屏缓冲使用硬件来绘制
+        setLayerType(LAYER_TYPE_SOFTWARE,null)  //离屏缓冲使用软件来绘制，（如果全局开启了硬件加速，在绘制这个VIew的时候会关闭这个view的硬件加速）
+        setLayerType(LAYER_TYPE_NONE,null)      //关闭离屏缓冲*/
     }
 
     override fun onDraw(canvas: Canvas) {
