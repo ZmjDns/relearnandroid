@@ -4,10 +4,12 @@ import android.animation.AnimatorSet
 import android.animation.Keyframe
 import android.animation.ObjectAnimator
 import android.animation.PropertyValuesHolder
+import android.graphics.PointF
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.zmj.relearnandroid.R
 import com.zmj.relearnandroid.view.dp
+import com.zmj.relearnandroid.view.lesson15animate.typeevaluator.PointFEvaluator
 import kotlinx.android.synthetic.main.act_animate.*
 
 class AnimateAct : AppCompatActivity() {
@@ -24,9 +26,11 @@ class AnimateAct : AppCompatActivity() {
 
 //        valuesHolder()
 
-        keyFrameAnim()
+//        keyFrameAnim()
 
 //        circleViewKeyFrame()
+
+        typeEvaluator()
 
     }
 
@@ -36,6 +40,20 @@ class AnimateAct : AppCompatActivity() {
         objAnimate.startDelay = 1000
         objAnimate.duration = 5000
         objAnimate.start()
+    }
+
+    private fun circleViewKeyFrame() {
+        val degree = 1080f
+        val keyframe0 = Keyframe.ofFloat(0f, 0f * degree)
+        val keyframe1 = Keyframe.ofFloat(0.25f,0.25f * degree)
+        val keyframe2 = Keyframe.ofFloat(0.6f, 0.6f * degree)
+        val keyframe3 = Keyframe.ofFloat(1f, 1f * degree)
+
+        val keyFrameHolder = PropertyValuesHolder.ofKeyframe("sweepAngle",keyframe0,keyframe1,keyframe2,keyframe3)
+        val keyObj = ObjectAnimator.ofPropertyValuesHolder(circleView,keyFrameHolder)
+        keyObj.startDelay = 1000
+        keyObj.duration = 5000
+        keyObj.start()
     }
 
     private fun flipAnimate() {
@@ -89,5 +107,13 @@ class AnimateAct : AppCompatActivity() {
         animator.startDelay = 1000
         animator.duration = 2000
         animator.start()
+    }
+
+    private fun typeEvaluator() {
+        val objectAnim = ObjectAnimator.ofObject(point,"point",PointFEvaluator(),PointF(200.dp,100.dp))
+
+        objectAnim.duration = 2000
+        objectAnim.startDelay = 1000
+        objectAnim.start()
     }
 }
