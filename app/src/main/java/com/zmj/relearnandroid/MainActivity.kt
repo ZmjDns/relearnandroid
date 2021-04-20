@@ -8,6 +8,7 @@ import com.zmj.relearnandroid.view.lesson12Xfermode.XFermodeAct
 import com.zmj.relearnandroid.view.lesson13textmeasure.TextMeasureAct
 import com.zmj.relearnandroid.view.lesson14cliptrans.ClipAndTransAct
 import com.zmj.relearnandroid.view.lesson15animate.AnimateAct
+import com.zmj.relearnandroid.view.lesson16bitmapdrawable.BitmapDrawableAct
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,5 +37,9 @@ class MainActivity : AppCompatActivity() {
 
     fun animate(view: View) {
         startActivity(Intent(this,AnimateAct::class.java))
+    }
+
+    fun drawableBitmap(view: View) {
+        startActivity(Intent(this,BitmapDrawableAct::class.java))
     }
 }
