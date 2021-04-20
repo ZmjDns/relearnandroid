@@ -9,6 +9,7 @@ import com.zmj.relearnandroid.view.lesson13textmeasure.TextMeasureAct
 import com.zmj.relearnandroid.view.lesson14cliptrans.ClipAndTransAct
 import com.zmj.relearnandroid.view.lesson15animate.AnimateAct
 import com.zmj.relearnandroid.view.lesson16bitmapdrawable.BitmapDrawableAct
+import com.zmj.relearnandroid.view.lesson17materialtext.MaterialEditTextAct
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,5 +42,23 @@ class MainActivity : AppCompatActivity() {
 
     fun drawableBitmap(view: View) {
         startActivity(Intent(this,BitmapDrawableAct::class.java))
+    }
+
+    fun materialText(view: View) {
+        startActivity(Intent(this,MaterialEditTextAct::class.java))
+    }
+
+
+
+
+
+
+
+
+
+
+
+    fun constraintLayout(view: View) {
+        startActivity(Intent(this,MaterialEditTextAct::class.java))
     }
 }

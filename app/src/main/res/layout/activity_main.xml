@@ -44,6 +44,18 @@
             android:text="drawableBitmap"
             android:onClick="drawableBitmap"/>
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="materialText"
+            android:onClick="materialText"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="约束布局"
+            android:onClick="constraintLayout"/>
+
     </LinearLayout>
 
 
