@@ -10,6 +10,7 @@ import com.zmj.relearnandroid.view.lesson14cliptrans.ClipAndTransAct
 import com.zmj.relearnandroid.view.lesson15animate.AnimateAct
 import com.zmj.relearnandroid.view.lesson16bitmapdrawable.BitmapDrawableAct
 import com.zmj.relearnandroid.view.lesson17materialtext.MaterialEditTextAct
+import com.zmj.relearnandroid.view.lesson28ConstraintLayout.ConstraintLayoutAct
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -59,6 +60,6 @@ class MainActivity : AppCompatActivity() {
 
 
     fun constraintLayout(view: View) {
-        startActivity(Intent(this,MaterialEditTextAct::class.java))
+        startActivity(Intent(this,ConstraintLayoutAct::class.java))
     }
 }
