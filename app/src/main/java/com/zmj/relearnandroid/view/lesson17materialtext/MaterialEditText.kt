@@ -1,5 +1,6 @@
 package com.zmj.relearnandroid.view.lesson17materialtext
 
+import android.animation.ObjectAnimator
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Paint
@@ -27,7 +28,7 @@ class MaterialEditText(context: Context, attrs: AttributeSet?) : AppCompatEditTe
 
     private val paint = Paint(Paint.ANTI_ALIAS_FLAG)
     private var floatingLabelShown = false
-    private var floatingLabelFraction = 0f
+    var floatingLabelFraction = 0f
         set(value) {
             field = value
             invalidate()
@@ -42,16 +43,20 @@ class MaterialEditText(context: Context, attrs: AttributeSet?) : AppCompatEditTe
         if (floatingLabelShown && text.isNullOrEmpty()) {   //输入从有到无
             floatingLabelShown = false
 
+            val animator1 = ObjectAnimator.ofFloat(this,"floatingLabelFraction",0f)
+            animator1.start()
+
         } else if (!floatingLabelShown && !text.isNullOrEmpty()) {  // 输入从无到有
             floatingLabelShown = true
-
+            val animator2 = ObjectAnimator.ofFloat(this,"floatingLabelFraction",1f)
+            animator2.start()
         }
     }
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
 
-        if (!text.isNullOrEmpty()) {
+        if (floatingLabelShown) {
             canvas.drawText(hint.toString(), HORIZONTAL_OFFSET, VERTICAL_OFFSET,paint)
         }
     }
