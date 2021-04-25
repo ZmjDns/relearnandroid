@@ -43,7 +43,6 @@ class MaterialEditText(context: Context, attrs: AttributeSet?) : AppCompatEditTe
         if (floatingLabelShown && text.isNullOrEmpty()) {   //输入从有到无
             floatingLabelShown = false
 
-
             val animator1 = ObjectAnimator.ofFloat(this,"floatingLabelFraction",0f)
             animator1.start()
 
