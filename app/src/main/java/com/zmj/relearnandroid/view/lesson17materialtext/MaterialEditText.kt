@@ -5,6 +5,7 @@ import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Paint
 import android.util.AttributeSet
+import android.util.Log
 import android.view.View
 import android.widget.EditText
 import androidx.appcompat.widget.AppCompatEditText
@@ -23,6 +24,7 @@ private val TEXT_MARGIN = 8.dp
 
 private val HORIZONTAL_OFFSET = 5.dp
 private val VERTICAL_OFFSET = 23.dp
+private val EXTRA_VERTICAL_OFFSET = 16.dp
 
 class MaterialEditText(context: Context, attrs: AttributeSet?) : AppCompatEditText(context, attrs) {
 
@@ -38,27 +40,26 @@ class MaterialEditText(context: Context, attrs: AttributeSet?) : AppCompatEditTe
         paint.textSize = TEXT_SIZE
         setPadding(paddingLeft,(paddingTop + TEXT_SIZE + TEXT_MARGIN).toInt(),paddingRight,paddingBottom)
     }
+    private val animator by lazy {
+        ObjectAnimator.ofFloat(this,"floatingLabelFraction",0f,1f)
+    }
 
     override fun onTextChanged(text: CharSequence?,start: Int,lengthBefore: Int,lengthAfter: Int) {
         if (floatingLabelShown && text.isNullOrEmpty()) {   //输入从有到无
             floatingLabelShown = false
-
-            val animator1 = ObjectAnimator.ofFloat(this,"floatingLabelFraction",0f)
-            animator1.start()
-
+            animator.reverse()
         } else if (!floatingLabelShown && !text.isNullOrEmpty()) {  // 输入从无到有
             floatingLabelShown = true
-            val animator2 = ObjectAnimator.ofFloat(this,"floatingLabelFraction",1f)
-            animator2.start()
+            animator.start()
         }
     }
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
 
-        if (floatingLabelShown) {
-            canvas.drawText(hint.toString(), HORIZONTAL_OFFSET, VERTICAL_OFFSET,paint)
-        }
+        paint.alpha = (floatingLabelFraction * 0xff).toInt()
+        val currentVerticalValue = VERTICAL_OFFSET + EXTRA_VERTICAL_OFFSET * (1 - floatingLabelFraction)
+        canvas.drawText(hint.toString(), HORIZONTAL_OFFSET, currentVerticalValue,paint)
     }
 
 }
