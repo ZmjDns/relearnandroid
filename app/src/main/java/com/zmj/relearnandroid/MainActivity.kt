@@ -59,6 +59,8 @@ class MainActivity : AppCompatActivity() {
 
 
 
+
+
     fun constraintLayout(view: View) {
         startActivity(Intent(this,ConstraintLayoutAct::class.java))
     }
